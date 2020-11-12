@@ -1,0 +1,358 @@
+:root {
+	--background: #EFEFEF;
+	--color-accent: rgba(33,33,33,1);
+
+	--box-padding: 20px;
+}
+
+@font-face {
+	font-family: "Droid Sans";
+	src: local("Droid Sans Regular"), local("DroidSans"), url("../fonts/DroidSans.woff2"), url("../fonts/DroidSans.ttf");
+}
+
+@font-face {
+	font-family: "Magistral";
+	src: local("Magistral Regular"), local("Magistral-Regular"), url("../fonts/Magistral.woff2"), url("../fonts/Magistral.ttf");
+}
+
+* {
+	margin: 0;
+	font-family: "Droid Sans","Arial",sans-serif;
+}
+
+html,
+body {
+	margin: auto;
+	background: var(--background);
+}
+
+h1,
+h2 {
+	font-family: "Magistral","Droid Sans","Arial",sans-serif;
+	letter-spacing: 2px;
+}
+
+.noAliasing {
+	image-rendering: pixelated;
+}
+
+/* Layout */
+
+section {
+	box-sizing: border-box;
+	padding: var(--box-padding);
+
+	display: flex;
+	justify-content: center;
+}
+
+section .inner {
+	width: calc(100% - 10px);
+	max-width: 1100px;
+	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.center.X {
+	align-items: unset;
+}
+
+.center.Y {
+	justify-content: unset;
+}
+
+img {
+	pointer-events: none;
+}
+
+/* Layout > Content */
+
+section.banner {
+	background: var(--color-accent);
+	color: white;
+	height: 35vh;
+	min-height: 300px;
+	display: flex;
+	text-align: center;
+	align-items: center;
+}
+
+section.banner h1 {
+	font-size: 3em;
+}
+
+section.banner h2 {
+	opacity: .5;
+}
+
+section.banner img {
+	max-width: 99px;
+	width: 20vw;
+}
+
+/* --- */
+
+section.card.highlight {
+	background: rgb(0,0,0);
+	background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, var(--color-accent) 50%, var(--color-accent) 100%);
+}
+
+section.card .inner {
+	background: white;
+	border-radius: 20px;
+	margin-top: var(--margin-top);
+	padding: calc(var(--box-padding) * 2.5);
+
+	display: flex;
+}
+
+section.card .inner > * {
+	display: flex;
+	align-self: center;
+	flex-wrap: wrap;
+}
+
+section.card h1 {
+	font-size: 2em;
+}
+
+section.card img {
+	max-width: 200px;
+	padding-left: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+section.card p {
+	font-size: 1.2em;
+}
+
+section.banner h2,
+section.card p:nth-child(2) {
+	--margin: 20px;
+	margin-top: var(--margin);
+	margin-bottom: var(--margin);
+}
+
+/* --- */
+
+section.circles .inner {
+	display: flex;
+	justify-content: space-between;
+}
+
+section.circles img {
+	width: 33%;
+	max-width: 300px;
+}
+
+/* --- */
+
+section.quote p {
+	text-align: center;
+	font-size: 1.5em;
+	font-style: italic;
+}
+
+/* --- */
+
+section.app {
+	--gradient-margin: 20%;
+	background: rgb(0,0,0);
+	background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) var(--gradient-margin), var(--color-accent) var(--gradient-margin), var(--color-accent) calc(100% - var(--gradient-margin)), rgba(0,0,0,0) calc(100% - var(--gradient-margin)), rgba(0,0,0,0) 100%);
+}
+
+section.app h2 {
+	font-size: 1.8em;
+	margin-bottom: calc(var(--box-padding) * 2);
+	color: white;
+}
+
+section.app .device {
+	width: 50%;
+}
+
+section.app .device > img {
+	width: 100%;
+}
+
+section.app .device > div {
+	position: absolute;
+	flex-wrap: wrap;
+}
+
+section.app .device > div > img {
+	width: 30%;
+}
+
+section.app .download {
+	width: 100%;
+	box-sizing: border-box;
+	padding: var(--box-padding);
+}
+
+section.app .badges {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+section.app .badges img {
+	width: 25%;
+}
+
+/* --- */
+
+section.highlight {
+	background: var(--color-accent);
+}
+
+section.highlight h2 {
+	color: white;
+	font-size: 2em;
+	text-transform: uppercase;
+	font-family: "Droid Sans","Arial",sans-serif;
+}
+
+/* --- */
+
+section.card + section.products {
+	padding-top: unset;
+}
+
+section.products .inner {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+section.products .item {	
+	width: 25%;
+	height: 350px;
+}
+
+section.products .item > div {
+	--margin: 20px;
+	box-sizing: border-box;
+	padding: 20px;
+	flex-wrap: wrap;
+	width: calc(100% - var(--margin));
+	height: calc(100% - var(--margin));
+	background: white;
+}
+
+section.products .item img {
+	height: 70%;
+}
+
+section.products .item p {
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+	font-family: "Magistral","Droid Sans","Arial",sans-serif;
+	font-weight: bold;
+}
+
+/* --- */
+
+section.bgimage {
+	background: var(--color-accent);
+	background-image: url("../img/bg.jpg");
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 30vh;
+}
+
+section.bgimage .inner {
+	display: flex;
+	justify-content: flex-end;
+}
+
+section.bgimage img {
+	height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+	section.banner {
+		font-size: 2vw;
+	}
+
+	/* --- */
+	
+	section.card {
+		--margin-top: 5px;
+	}
+
+	section.card .inner {
+		flex-wrap: wrap-reverse;
+	}
+
+	section.card img {
+		padding-left: unset;
+		margin-bottom: var(--box-padding);
+	}
+
+	/* --- */
+
+	section.app h2 {
+		font-size: 1em;
+	}
+
+	/* --- */
+
+	section.products .item {	
+		width: 33.33%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	section.circles .inner {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	section.circles img {
+		--margin: 10px;
+		width: calc(50% - (var(--margin) * 2));
+		margin: var(--margin);
+		max-width: 300px;
+	}
+
+	section.circles img:last-child {
+		margin-top: calc(var(--margin) * -1);
+	}
+
+	/* --- */
+
+	section.card {
+		background: white;
+		margin-bottom: var(--box-padding);
+	}
+
+	section.card .inner {
+		padding: var(--box-padding);
+	}
+
+	section.card.highlight .inner {
+		padding: calc(var(--box-padding) * 1.5);
+	}
+
+	section.highlight h2 {
+		text-align: center;
+	}
+
+	section.products .item {	
+		width: 100%;
+	}
+
+	section.products .item > div {
+		border-radius: 6px;
+	}
+}
