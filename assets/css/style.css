@@ -17,7 +17,6 @@
 
 * {
 	margin: 0;
-	font-family: "Droid Sans","Arial",sans-serif;
 }
 
 html,
@@ -26,11 +25,25 @@ body {
 	background: var(--background);
 }
 
+/* --- */
+
+h1,
+h2,
+.Magistral {
+	font-family: "Magistral","Droid Sans","Arial",sans-serif;
+}
+
+*,
+.Droid {
+	font-family: "Droid Sans","Arial",sans-serif;
+}
+
 h1,
 h2 {
-	font-family: "Magistral","Droid Sans","Arial",sans-serif;
 	letter-spacing: 2px;
 }
+
+/* --- */
 
 .noAliasing {
 	image-rendering: pixelated;
@@ -38,6 +51,7 @@ h2 {
 
 /* Layout */
 
+footer,
 section {
 	box-sizing: border-box;
 	padding: var(--box-padding);
@@ -46,6 +60,7 @@ section {
 	justify-content: center;
 }
 
+footer .inner,
 section .inner {
 	width: calc(100% - 10px);
 	max-width: 1100px;
@@ -66,10 +81,6 @@ section .inner {
 
 .center.Y {
 	justify-content: unset;
-}
-
-img {
-	pointer-events: none;
 }
 
 /* Layout > Content */
@@ -123,8 +134,10 @@ section.card h1 {
 	font-size: 2em;
 }
 
+section.card picture,
 section.card img {
 	max-width: 200px;
+	height: 200px; /* Webkit */
 	padding-left: 20px;
 	margin-left: auto;
 	margin-right: auto;
@@ -148,8 +161,9 @@ section.circles .inner {
 	justify-content: space-between;
 }
 
+section.circles picture,
 section.circles img {
-	width: 33%;
+	width: 90%;
 	max-width: 300px;
 }
 
@@ -176,20 +190,27 @@ section.app h2 {
 }
 
 section.app .device {
+	position: relative;
 	width: 50%;
 }
 
-section.app .device > img {
+section.app .device picture,
+section.app .device picture img {
 	width: 100%;
 }
 
-section.app .device > div {
+section.app .device .icons {
 	position: absolute;
-	flex-wrap: wrap;
+	display: block;
+	width: 40%;
 }
 
-section.app .device > div > img {
-	width: 30%;
+section.app .device .icons picture:last-child {
+	display: none;
+}
+
+section.app .device .icons picture:last-child img {
+	margin-top: 5em;
 }
 
 section.app .download {
@@ -205,8 +226,9 @@ section.app .badges {
 	justify-content: space-between;
 }
 
+section.app .badges picture,
 section.app .badges img {
-	width: 25%;
+	width: 80%;
 }
 
 /* --- */
@@ -249,7 +271,7 @@ section.products .item > div {
 }
 
 section.products .item img {
-	height: 70%;
+	height: 60%;
 }
 
 section.products .item p {
@@ -258,13 +280,14 @@ section.products .item p {
 	text-align: center;
 	font-family: "Magistral","Droid Sans","Arial",sans-serif;
 	font-weight: bold;
+	align-self: flex-end;
 }
 
 /* --- */
 
 section.bgimage {
 	background: var(--color-accent);
-	background-image: url("../img/bg.jpg");
+	background-image: url("../img/bg.png");
 	background-size: cover;
 	background-position: 50% 50%;
 	height: 30vh;
@@ -275,8 +298,20 @@ section.bgimage .inner {
 	justify-content: flex-end;
 }
 
+section.bgimage picture,
 section.bgimage img {
+	width: 25vh; /* Webkit */
 	height: 100%;
+}
+
+footer {
+	background: var(--color-accent);
+	height: 10vh;
+}
+
+footer p {
+	font-size: 1em;
+	color: white;
 }
 
 @media screen and (max-width: 800px) {
@@ -310,6 +345,12 @@ section.bgimage img {
 	section.products .item {	
 		width: 33.33%;
 	}
+
+	/* --- */
+
+	section.bgimage .inner {
+		justify-content: center;
+	}
 }
 
 @media screen and (max-width: 600px) {
@@ -318,14 +359,16 @@ section.bgimage img {
 		justify-content: center;
 	}
 
+	section.circles picture,
 	section.circles img {
-		--margin: 10px;
-		width: calc(50% - (var(--margin) * 2));
+		--margin: 2vw;
+		width: unset;
 		margin: var(--margin);
-		max-width: 300px;
+		max-width: 39vw;
 	}
 
-	section.circles img:last-child {
+	section.circles picture:last-child,
+	section.circles img:last-of-type {
 		margin-top: calc(var(--margin) * -1);
 	}
 
@@ -344,6 +387,8 @@ section.bgimage img {
 		padding: calc(var(--box-padding) * 1.5);
 	}
 
+	/* --- */
+
 	section.highlight h2 {
 		text-align: center;
 	}
@@ -354,5 +399,43 @@ section.bgimage img {
 
 	section.products .item > div {
 		border-radius: 6px;
+	}
+
+	/* --- */
+
+	section.quote p {
+		margin-bottom: 1em;
+	}
+
+	/* --- */
+
+	section.app {
+		background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, var(--color-accent) 30%, var(--color-accent) 100%);
+	}
+
+	section.app h2 {
+		font-size: 2em;
+		text-align: center;
+	}
+
+	section.app .inner {
+		flex-wrap: wrap-reverse;
+	}
+
+	section.app .device {
+		width: 100%;
+	}
+
+	section.app .device .icons picture:last-child {
+		display: initial;
+	}
+
+	section.app .badges {
+		justify-content: flex-end;
+	}
+
+	section.app .badges picture:last-child,
+	section.app .badges picture:first-child {
+		display: none;
 	}
 }
