@@ -114,7 +114,15 @@
             imagefill($canvas,0,0,$bg);
 
             imagecopyresampled($canvas,$construct,$target["offsetX"],$target["offsetY"],0,0,$target["width"],$target["height"], $this->source["width"], $this->source["height"]); // Resample image to target size
+
             imagejpeg($canvas,$this->image["path"],100); // Save resampled image as JPG
+
+            // Save resampled image as WebP
+            $webp = str_replace(".jpg",".webp",$this->image["path"]);
+            imagewebp($canvas,$webp,100);
+
+            // Free up memory
+            imagedestroy($construct);
         }
 
         // Generate a thumbnail
