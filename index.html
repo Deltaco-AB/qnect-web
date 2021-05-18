@@ -50,29 +50,26 @@
 				</picture>
 			</div>
 		</section>
-		<section class="circles">
-			<div class="inner">
-				<picture>
-					<source srcset="assets/img/circle-1.webp" type="image/webp">
-					<source srcset="assets/img/circle-1.png" type="image/png">
-					<img alt="Scenery 1" srcset="assets/img/fallback.jpg">
-				</picture>
-				<picture>
-					<source srcset="assets/img/circle-2.webp" type="image/webp">
-					<source srcset="assets/img/circle-2.png" type="image/png">
-					<img alt="Scenery 2" srcset="assets/img/fallback.jpg">
-				</picture>
-				<picture>
-					<source srcset="assets/img/circle-3.webp" type="image/webp">
-					<source srcset="assets/img/circle-3.png" type="image/png">
-					<img alt="Scenery 3" srcset="assets/img/fallback.jpg">
-				</picture>
+		<section class="carousel">
+			<div id="carousel" class="inner center">
+				<img src="assets/img/arrow.svg"/>
+				<div class="content">
+					<div class="slider">
+						<div id="yt_slide0"></div>
+						<div id="yt_slide1"></div>
+						<div id="yt_slide2"></div>
+					</div>
+				</div>
+				<img src="assets/img/arrow.svg"/>
 			</div>
 		</section>
-		<section class="quote">
+		<section class="carouselPages">
 			<div class="inner">
-				<p>Modern times require modern solutions and new ways of living.</p>
-				<p>Make your home more than just a house, make it your dream home.</p>
+				<div id="carouselDots" class="dots center">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
 			</div>
 		</section>
 		<section class="app">
@@ -118,7 +115,6 @@
 				</div>
 			</div>
 		</section>
-		<section></section>
 		<section class="highlight">
 			<div class="inner">
 				<h2>Convenience</h2>
@@ -129,6 +125,11 @@
 				<div>
 					<p>Technology is great, and it’s even greater when it’s used to make our lives easier. Forget the days when you had to get off the couch to turn on/off the lights. Or when you worried all day at work, wondering if you’d turned off the coffee machine. By using smart plugs and power outlets you get full control over your devices, conveniently from anywhere via a smartphone. Activate your irrigation sprinkler at will or why not control when to turn on/off your TV? Don’t bother getting up, when it’s no longer necessary. Convenience is the smarter choice.</p>
 				</div>
+			</div>
+		</section>
+		<section class="video">
+			<div class="inner">
+				<div id="yt_page0"></div>
 			</div>
 		</section>
 		<section class="products">
@@ -159,7 +160,6 @@
 				</div>
 			</div>
 		</section>
-		<section></section>
 		<section class="highlight">
 			<div class="inner">
 				<h2>Ambience</h2>
@@ -170,6 +170,11 @@
 				<div>
 					<p>Smart lighting is a brilliant focal point for anyone interested in creating a smart home. Beautiful smart lights can truly transform the overall home ambiance. And the best part? They’re totally controllable. Easily change between cold/warm light, adjust brightness/color as well as schedule on/off. Match the lights to your daily mood and activity with various pre-installed light scenes. Smart lights come in different styles, sizes, and colors but have one thing in common - they all create a cozy and interactive home everyone will love.</p>
 				</div>
+			</div>
+		</section>
+		<section class="video">
+			<div class="inner">
+				<div id="yt_page1"></div>
 			</div>
 		</section>
 		<section class="products">
@@ -272,6 +277,11 @@
 				</div>
 			</div>
 		</section>
+		<section class="video">
+			<div class="inner">
+				<div id="yt_page2"></div>
+			</div>
+		</section>
 		<section class="products">
 			<div class="inner">
 				<div class="item center">
@@ -352,5 +362,7 @@
 		<area shape="rect" coords="0,40,100,135" href="https://play.google.com/store/apps/details?id=com.qnect.smart&hl=da" target="_blank">
 	</map>
 	<script src="assets/js/script.js"></script>
+	<script src="assets/js/yt.js"></script>
+	<script src="assets/js/carousel.js"></script>
 </body>
 </html>
