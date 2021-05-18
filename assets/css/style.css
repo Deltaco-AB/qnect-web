@@ -76,6 +76,14 @@ section .inner {
 
 /* Layout > Content */
 
+section.banner {
+	background: white;
+}
+
+section.banner img {
+	width: 100%;
+}
+
 section.intro {
 	background: var(--color-accent);
 	height: 100px;
@@ -388,6 +396,16 @@ footer p {
 }
 
 @media screen and (max-width: 600px) {
+
+	section.banner {
+		padding: 0;
+	}
+
+	section.intro {
+		height: 0;
+	}
+
+	/* --- */
 
 	section.card {
 		background: white;
