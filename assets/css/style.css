@@ -91,6 +91,19 @@ section.intro {
 
 /* --- */
 
+section.text {
+	background: white;
+}
+
+section.text h1 {
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+/* --- */
+
 section.carousel {
 	padding: unset;
 	background: rgba(0,0,0,.5);
