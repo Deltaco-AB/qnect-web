@@ -346,19 +346,13 @@ section.bgimage {
 	background: var(--color-accent);
 	background-image: url("../img/bg.png");
 	background-size: cover;
-	background-position: 50% 50%;
-	height: 30vh;
+	background-position: 50% 80%;
+	height: 50vh;
 }
 
-section.bgimage .inner {
-	display: flex;
-	justify-content: flex-end;
-}
-
-section.bgimage picture,
 section.bgimage img {
-	width: 25vh; /* Webkit */
-	height: 100%;
+	width: 30vh;
+	max-width: 350px;
 }
 
 footer {
@@ -408,12 +402,6 @@ footer p {
 
 	section.products .item {	
 		width: 33.33%;
-	}
-
-	/* --- */
-
-	section.bgimage .inner {
-		justify-content: center;
 	}
 }
 
