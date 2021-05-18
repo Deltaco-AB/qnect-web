@@ -1,18 +1,9 @@
+@import "fonts.css";
+
 :root {
-	--background: #EFEFEF;
+	--color-background: #EFEFEF;
 	--color-accent: rgba(33,33,33,1);
-
 	--box-padding: 20px;
-}
-
-@font-face {
-	font-family: "Droid Sans";
-	src: local("Droid Sans Regular"), local("DroidSans"), url("../fonts/DroidSans.woff2"), url("../fonts/DroidSans.ttf");
-}
-
-@font-face {
-	font-family: "Magistral";
-	src: local("Magistral Regular"), local("Magistral-Regular"), url("../fonts/Magistral.woff2"), url("../fonts/Magistral.ttf");
 }
 
 * {
@@ -22,7 +13,7 @@
 html,
 body {
 	margin: auto;
-	background: var(--background);
+	background-color: var(--color-background);
 }
 
 /* --- */
@@ -62,7 +53,7 @@ section {
 
 footer .inner,
 section .inner {
-	width: calc(100% - 10px);
+	width: 100%;
 	max-width: 1100px;
 	box-sizing: border-box;
 	margin-left: auto;
@@ -85,34 +76,115 @@ section .inner {
 
 /* Layout > Content */
 
-section.banner {
+section.intro {
 	background: var(--color-accent);
-	color: white;
-	height: 35vh;
-	min-height: 300px;
-	display: flex;
+	height: 25vh;
+	min-height: 150px;
+	max-height: 400px;
+}
+
+section.intro img {
+	width: 15vh;
+	min-width: 100px;
+	max-width: 200px;
+}
+
+/* --- */
+
+section.text {
+	background: white;
+}
+
+section.text h1 {
+	text-transform: uppercase;
 	text-align: center;
-	align-items: center;
+	font-weight: bold;
+	font-size: 30px;
 }
 
-section.banner h1 {
-	font-size: 3em;
+/* --- */
+
+section.carousel {
+	--transition-speed: 300ms;
+	padding: unset;
+	background: black;
+	overflow: hidden;
 }
 
-section.banner h2 {
-	opacity: .5;
+section.carousel .inner {
+	height: 50vw;
+	min-height: 300px;
+	max-height: 550px;
 }
 
-section.banner img {
-	max-width: 99px;
-	width: 20vw;
+section.carousel .inner > img {
+	position: relative;
+	padding: 0 20px;
+	width: 40px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+section.carousel .inner > img:last-of-type {
+	transform: rotate(180deg);
+}
+
+section.carousel .content {
+	height: 100%;
+	width: 100%;
+	white-space: nowrap;
+	background-color: black;
+	background-image: url("../img/loading.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+}
+
+section.carousel .slider {
+	--length: 1;
+	width: calc(100% * var(--length));
+	transition: var(--transition-speed) transform;
+	transform: translateX(0);
+	height: 100%;
+	display: flex;
+}
+
+section.carousel .slider > iframe {
+	transition: var(--transition-speed) opacity;
+	opacity: .3;
+	pointer-events: none;
+}
+
+section.carousel .slider > iframe.active {
+	opacity: 1;
+	pointer-events: all;
+}
+
+section.carouselPages {
+	background: white;
+}
+
+section.carouselPages .dots > div {
+	--size: 14px;
+	width: var(--size);
+	height: var(--size);
+	margin: 0 5px;
+	background: #E6E6E6;
+	border-radius: 100%;
+	cursor: pointer;
+}
+
+section.carouselPages .dots > div.active {
+	background: black;
+	pointer-events: none;
 }
 
 /* --- */
 
 section.card.highlight {
 	background: rgb(0,0,0);
-	background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, var(--color-accent) 50%, var(--color-accent) 100%);
+	background: linear-gradient(0deg, white 0%, white 50%, var(--color-accent) 50%, var(--color-accent) 100%);
+	margin: unset;
 }
 
 section.card .inner {
@@ -147,7 +219,7 @@ section.card p {
 	font-size: 1.2em;
 }
 
-section.banner h2,
+section.intro h2,
 section.card p:nth-child(2) {
 	--margin: 20px;
 	margin-top: var(--margin);
@@ -156,31 +228,15 @@ section.card p:nth-child(2) {
 
 /* --- */
 
-section.circles .inner {
-	display: flex;
-	justify-content: space-between;
-}
-
-section.circles picture,
-section.circles img {
-	width: 90%;
-	max-width: 300px;
-}
-
-/* --- */
-
-section.quote p {
-	text-align: center;
-	font-size: 1.5em;
-	font-style: italic;
-}
-
-/* --- */
-
 section.app {
 	--gradient-margin: 20%;
 	background: rgb(0,0,0);
-	background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) var(--gradient-margin), var(--color-accent) var(--gradient-margin), var(--color-accent) calc(100% - var(--gradient-margin)), rgba(0,0,0,0) calc(100% - var(--gradient-margin)), rgba(0,0,0,0) 100%);
+	background: linear-gradient(0deg, white 0%, white var(--gradient-margin), var(--color-accent) var(--gradient-margin), var(--color-accent) calc(100% - var(--gradient-margin)), white calc(100% - var(--gradient-margin)), white 100%);
+	padding-bottom: calc(var(--box-padding) * 2);
+}
+
+section.app + section {
+	margin-top: unset;
 }
 
 section.app h2 {
@@ -235,6 +291,7 @@ section.app .badges img {
 
 section.highlight {
 	background: var(--color-accent);
+	margin: var(--box-padding) 0;
 }
 
 section.highlight h2 {
@@ -242,6 +299,24 @@ section.highlight h2 {
 	font-size: 2em;
 	text-transform: uppercase;
 	font-family: "Droid Sans","Arial",sans-serif;
+}
+
+/* --- */
+
+section.video .inner {
+	padding: 0 calc(var(--box-padding) * 2);
+}
+
+section.video iframe {
+	width: 100%;
+	height: 50vw;
+	min-height: 300px;
+	max-height: 600px;
+	background-color: black;
+	background-image: url("../img/loading.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
 }
 
 /* --- */
@@ -289,19 +364,13 @@ section.bgimage {
 	background: var(--color-accent);
 	background-image: url("../img/bg.png");
 	background-size: cover;
-	background-position: 50% 50%;
-	height: 30vh;
+	background-position: 50% 80%;
+	height: 50vh;
 }
 
-section.bgimage .inner {
-	display: flex;
-	justify-content: flex-end;
-}
-
-section.bgimage picture,
 section.bgimage img {
-	width: 25vh; /* Webkit */
-	height: 100%;
+	width: 30vh;
+	max-width: 350px;
 }
 
 footer {
@@ -316,7 +385,7 @@ footer p {
 }
 
 @media screen and (max-width: 800px) {
-	section.banner {
+	section.intro {
 		font-size: 2vw;
 	}
 
@@ -337,6 +406,12 @@ footer p {
 
 	/* --- */
 
+	section.video .inner {
+		padding: unset;
+	}
+
+	/* --- */
+
 	section.app h2 {
 		font-size: 1em;
 	}
@@ -346,38 +421,12 @@ footer p {
 	section.products .item {	
 		width: 33.33%;
 	}
-
-	/* --- */
-
-	section.bgimage .inner {
-		justify-content: center;
-	}
 }
 
 @media screen and (max-width: 600px) {
-	section.circles .inner {
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-
-	section.circles picture,
-	section.circles img {
-		--margin: 2vw;
-		width: unset;
-		margin: var(--margin);
-		max-width: 39vw;
-	}
-
-	section.circles picture:last-child,
-	section.circles img:last-of-type {
-		margin-top: calc(var(--margin) * -1);
-	}
-
-	/* --- */
 
 	section.card {
 		background: white;
-		margin-bottom: var(--box-padding);
 	}
 
 	section.card .inner {
@@ -390,6 +439,35 @@ footer p {
 
 	/* --- */
 
+	section.carousel .inner > img {
+		--size: 30px;
+		width: var(--size);
+		height: var(--size);
+		position: absolute;
+		padding: 10px;
+		background: black;
+		border-radius: 100%;
+		opacity: .5;
+	}
+
+	section.carousel .inner > img:first-of-type {
+		left: calc(var(--box-padding) / 2);
+	}
+
+	section.carousel .inner > img:last-of-type {
+		right: calc(var(--box-padding) / 2);
+	}
+
+	section.video {
+		padding: unset;
+	}
+
+	/* --- */
+
+	section.highlight {
+		margin: unset;
+	}
+
 	section.highlight h2 {
 		text-align: center;
 	}
@@ -400,12 +478,6 @@ footer p {
 
 	section.products .item > div {
 		border-radius: 6px;
-	}
-
-	/* --- */
-
-	section.quote p {
-		margin-bottom: 1em;
 	}
 
 	/* --- */
