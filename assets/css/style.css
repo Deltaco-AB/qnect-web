@@ -76,27 +76,9 @@ section .inner {
 
 /* Layout > Content */
 
-section.banner {
+section.intro {
 	background: var(--color-accent);
-	color: white;
-	height: 35vh;
-	min-height: 300px;
-	display: flex;
-	text-align: center;
-	align-items: center;
-}
-
-section.banner h1 {
-	font-size: 3em;
-}
-
-section.banner h2 {
-	opacity: .5;
-}
-
-section.banner img {
-	max-width: 99px;
-	width: 20vw;
+	height: 100px;
 }
 
 /* --- */
@@ -201,7 +183,7 @@ section.card p {
 	font-size: 1.2em;
 }
 
-section.banner h2,
+section.intro h2,
 section.card p:nth-child(2) {
 	--margin: 20px;
 	margin-top: var(--margin);
@@ -367,7 +349,7 @@ footer p {
 }
 
 @media screen and (max-width: 800px) {
-	section.banner {
+	section.intro {
 		font-size: 2vw;
 	}
 
