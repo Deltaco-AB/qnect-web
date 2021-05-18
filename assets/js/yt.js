@@ -2,12 +2,12 @@
 
 // Player element id's and YT video id's
 const videos = {
-	"yt_slide0": "dQw4w9WgXcQ",
-	"yt_slide1": "dQw4w9WgXcQ",
-	"yt_slide2": "dQw4w9WgXcQ",
-	"yt_page0": "dQw4w9WgXcQ",
-	"yt_page1": "dQw4w9WgXcQ",
-	"yt_page2": "dQw4w9WgXcQ"
+	"yt_slide_plug": "vNkDlYGGk-8",
+	"yt_slide_lights": "FOG22gBpnEQ",
+	"yt_slide_security": "y7nPklO8hbc",
+	"yt_page_plug": "vNkDlYGGk-8",
+	"yt_page_lights": "FOG22gBpnEQ",
+	"yt_page_security": "y7nPklO8hbc"
 }
 
 // Fetch and load the API
