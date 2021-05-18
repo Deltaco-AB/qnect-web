@@ -22,6 +22,10 @@ class QnectCarousel {
 		players.forEach(player => player.pauseVideo());
 	}
 
+	slidesCount() {
+		return this.slides.length;
+	}
+
 	// Update the slide selector/indicator dots with the current index
 	updateDot() {
 		if(!this.elements.dots) {
@@ -36,23 +40,34 @@ class QnectCarousel {
 		dots[this.index].classList.add("active");
 	}
 
+	// Update slides with the current index
+	updateSlide() {
+		for(const slide of this.slides) {
+			slide.classList.remove("active");
+		}
+		this.slides[this.index].classList.add("active");
+	}
+
 	// Scroll to slide by index
 	scrollTo(index) {
 		if(index < 0) {
-			this.scrollTo(this.slides.length - 1);
+			this.scrollTo(this.slidesCount() - 1);
 			return false;
-		} else if(index > this.slides.length - 1) {
+		} else if(index > this.slidesCount() - 1) {
 			this.scrollTo(0);
 			return false;
 		}
 
 		this.pauseVideos();
 
-		const percent = 100 / this.slides.length;
+		const percent = 100 / this.slidesCount();
 		const translate = percent * index;
 
 		this.elements.slider.style.setProperty("transform",`translateX(-${translate}%)`);
 		this.index = parseInt(index);
+
+		// UI update
+		this.updateSlide();
 		this.updateDot();
 	}
 
@@ -60,6 +75,9 @@ class QnectCarousel {
 	// Positive int goes forwards, negative int goes backwards
 	scroll(direction) {
 		this.scrollTo(this.index + direction);
+		
+		// Remove the loading spinner
+		this.elements.carousel.children[1].style.setProperty("background-image","unset");
 	}
 
 	// -- Init --
@@ -67,7 +85,7 @@ class QnectCarousel {
 	// Count the number of loaded slides
 	setSlides() {
 		this.slides = this.elements.slider.children;
-		this.elements.slider.style.setProperty("--length",this.slides.length);
+		this.elements.slider.style.setProperty("--length",this.slidesCount());
 	}
 
 	// Bind interactive elements
@@ -89,3 +107,6 @@ class QnectCarousel {
 const carouselElem = document.getElementById("carousel");
 const carouselDotsElem = document.getElementById("carouselDots");
 const carousel = new QnectCarousel(carouselElem,carouselDotsElem);
+
+// Scroll to the middle slide
+carousel.scrollTo(Math.floor(carousel.slidesCount() / 2));
